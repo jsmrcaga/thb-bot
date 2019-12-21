@@ -1,16 +1,10 @@
-const discord = require('@jsmrcaga/discord');
-
-const Commands = require('./commands/commands');
 const Sentry = require('./lib/sentry');
 
-const bot = new discord({
-	identify: {
-		token: process.env.DISCORD_BOT_TOKEN
-	}
-});
+const Commands = require('./commands/commands');
+const bot = require('./lib/bot');
 
 // Handle MMR for rocket league, check channel and user
-bot.command('/mmr', ({ args: { variables, options } , data }) => { Commands.mmr() });
+bot.command('/mmr', (...args) => { Commands.mmr(...args) });
 
 bot.on('message', ({ content, channel, channel_id }) => {
 	if(content.indexOf('help') > -1) {
@@ -34,9 +28,9 @@ You can find your tracker id by going to Tracker Network (https://rocketleague.t
 bot.connect();
 
 process.on('uncaughtException', (e) => {
-	Sentry.captureException(err);
+	Sentry.captureException(e);
 });
 
 process.on('unhandledRejection', (e) => {
-	Sentry.captureException(err);
+	Sentry.captureException(e);
 });

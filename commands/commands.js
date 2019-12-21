@@ -1,7 +1,8 @@
 const RocketLeague = require('../rocket-league');
+const bot = require('../lib/bot');
 
 const mmr = ({ args: { variables, options } , data }) => {
-	if(data.channel_id !== channel_rl && (!data.channel || !data.channel.is_dm)) {
+	if(!data.channel || !data.channel.is_dm) {
 		return bot.message({
 			channel: data.channel_id,
 			content: 'Please request MMR only in the #rocketleague channel ;)'
