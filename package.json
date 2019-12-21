@@ -1,0 +1,17 @@
+{
+  "name": "rocket-league-bot",
+  "version": "0.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bot.js"
+  },
+  "author": "Jo Colina <jo@jocolina.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@jsmrcaga/discord": "0.0.3",
+    "@sentry/node": "^5.10.2",
+    "fishingrod": "^4.1.0"
+  }
+}
