@@ -33,17 +33,20 @@ bot.connect();
 
 // Set error handlers to send errors to sentry and prevent crashes
 bot.on('error', (e) => {
+	console.error(e);
 	// TODO: find a way to pass params to configure sentry scope
 	Sentry.captureException(e);
 });
 
 // PM should be able to restart process without a problem
 process.on('uncaughtException', (e) => {
+	console.error(e);
 	Sentry.captureException(e);
 	process.exit(1);
 });
 
 process.on('unhandledRejection', (e) => {
+	console.error(e);
 	Sentry.captureException(e);
 	process.exit(1);
 });
