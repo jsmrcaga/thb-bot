@@ -54,5 +54,5 @@ process.on('unhandledRejection', (e) => {
 // Heroku listener
 const port = process.env.PORT || 1234;
 Heroku.listen({ port }, () => {
-	console.log(`Heroku server listening on port ${port}`);
+	console.log(`[Heroku] Server listening on port ${port}`);
 });
