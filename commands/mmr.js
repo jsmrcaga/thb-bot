@@ -2,13 +2,6 @@ const RocketLeague = require('../rocket-league');
 const bot = require('../lib/bot');
 
 module.exports = ({ args: { variables, options } , data }) => {
-	if(!data.channel || !data.channel.is_dm) {
-		return bot.message({
-			channel: data.channel_id,
-			content: 'Please request MMR only in the #rocketleague channel ;)'
-		});
-	}
-
 	let [ user_arg_id ] = variables;
 
 	// Fetch MMR and send
